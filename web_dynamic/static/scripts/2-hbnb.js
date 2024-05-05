@@ -18,11 +18,12 @@ $("document").ready(function () {
     });
   });
 
+  const api='div#api_status'
   $.ajax('http://0.0.0.0:5001/api/v1/status/').done(function (data) {
     if (data.status === "OK") {
-      $("div#api_status").addClass("available");
+      $(api).addClass("available");
     } else {
-      $("div#api_status").removeClass("available");
+      $(api).removeClass("available");
     }
   });
 });
