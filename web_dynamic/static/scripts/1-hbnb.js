@@ -6,6 +6,15 @@ $('document').ready(function () {
         } else {
             delete selected[$(this).data('id')];
         }
-        $('div.amenity h4').text(Object.values(selected).join(', '));
+        $('div.amenities h4').html(function () {
+            let amenities = [];
+            Object.keys(selected).forEach(function (key) {
+            amenities.push(selected[key]);
+            });
+            if (amenities.length === 0) {
+            return ('&nbsp');
+            }
+            return (amenities.join(', '));
+        });
    });
 });
